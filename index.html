@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>图片压缩工具</h1>
+            <p>支持 PNG、JPG 格式图片压缩</p>
+        </header>
+
+        <main>
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="imageInput" accept="image/png, image/jpeg" hidden>
+                <div class="upload-hint">
+                    <svg width="48" height="48" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                    </svg>
+                    <p>点击或拖拽图片到此处</p>
+                </div>
+            </div>
+
+            <div class="preview-container" style="display: none;">
+                <div class="preview-box">
+                    <h3>原图</h3>
+                    <div class="image-preview">
+                        <img id="originalPreview" alt="原图预览">
+                    </div>
+                    <div class="file-info">
+                        <span>原始大小：</span>
+                        <span id="originalSize">0 KB</span>
+                    </div>
+                </div>
+
+                <div class="preview-box">
+                    <h3>压缩后</h3>
+                    <div class="image-preview">
+                        <img id="compressedPreview" alt="压缩后预览">
+                    </div>
+                    <div class="file-info">
+                        <span>压缩后大小：</span>
+                        <span id="compressedSize">0 KB</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls" style="display: none;">
+                <div class="quality-control">
+                    <label for="quality">压缩质量：<span id="qualityValue">80%</span></label>
+                    <input type="range" id="quality" min="0" max="100" value="80">
+                </div>
+                <button id="downloadBtn" class="download-btn">下载压缩后的图片</button>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
